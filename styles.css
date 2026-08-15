@@ -230,7 +230,9 @@ img {
     max-height: 40vh;
   }
   .hero-frame img {
-    object-position: 50% 78%;
+    /* Dino stands at the foot of the plate: anchor the crop to the bottom
+       or a phone shows him cut off at the knees */
+    object-position: 50% 100%;
   }
 }
 
