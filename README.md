@@ -23,6 +23,13 @@ hero and footer stay violet in both colour schemes.
 
 Everything under `assets/` is cut from the brand vault at
 `~/Documents/2B/Fantosaur/Images/`. The three joke frames are real episode stills.
+
+`band-*.webp` are the hero backdrop: one full-strength horizontal crop from each of
+the six art themes, stacked, no blur and no fade. `dino-mic.webp` is the performer,
+composited from `assets/brand/dino-transparent.png` and `rig/stage/foreground.svg` in
+the `fantosaur` repo at that pipeline's own stage geometry (canvas 1080x1920, art
+bbox 193..2878, floor 1480, mic drawn over Dino). Rebuilding it any other way puts
+the mic on the wrong plane, which is the note Jared gave the video rig on 2026-07-28.
 Fonts are self-hosted (Protest Riot and Poppins, both OFL, licences alongside the
 files) and the social icons are Simple Icons (CC0), inlined into the markup. That is
 deliberate: the privacy policy promises the site makes no third-party requests, so

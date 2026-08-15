@@ -211,29 +211,39 @@ img {
   margin-bottom: 0.55em;
 }
 
-.hero-frame {
+/* Six bands, one per art theme, are the backdrop. Every band is at full
+   strength: no blur, no fade, no scrim. The performer plate is composited at the
+   show's own stage geometry and sits over the bottom two. */
+.hero-art {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  max-width: 460px;
+  margin-inline: auto;
   border-radius: var(--radius);
   overflow: hidden;
+  background: var(--violet-deep);
   box-shadow: 0 24px 60px rgb(10 2 24 / 0.55);
-  aspect-ratio: 4 / 5;
-  max-height: 62vh;
-  margin-inline: auto;
 }
-.hero-frame img {
+.hero-art .band {
+  overflow: hidden;
+}
+.hero-art .band img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-@media (max-width: 899px) {
-  .hero-frame {
-    aspect-ratio: 16 / 11;
-    max-height: 40vh;
-  }
-  .hero-frame img {
-    /* Dino stands at the foot of the plate: anchor the crop to the bottom
-       or a phone shows him cut off at the knees */
-    object-position: 50% 100%;
-  }
+.hero-art .performer {
+  position: absolute;
+  left: 6%;
+  bottom: 3.5%;
+  width: 84%;
+  /* the shadow is on Dino, not on the art: it separates him from a busy band
+     without softening the band itself */
+  filter: drop-shadow(0 6px 18px rgb(8 1 20 / 0.72));
 }
 
 /* ---------- buttons ---------- */
@@ -482,6 +492,55 @@ section {
 /* ---------- motion: entrance only, and only where the browser can do it
    on the scroll timeline. Guarded so a browser without support never
    inherits opacity 0. ---------- */
+
+/* The hero sits above the fold, so its bands run on arrival rather than on a
+   scroll timeline: at scroll 0 a view() timeline is already past its entry range
+   and the slide would never be seen. Each band enters from the left, one after
+   the next, and Dino walks on once the stage is built. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-art .band img {
+    animation: band-in 0.8s var(--ease) both;
+  }
+  .hero-art .band:nth-child(1) img {
+    animation-delay: 0.08s;
+  }
+  .hero-art .band:nth-child(2) img {
+    animation-delay: 0.22s;
+  }
+  .hero-art .band:nth-child(3) img {
+    animation-delay: 0.36s;
+  }
+  .hero-art .band:nth-child(4) img {
+    animation-delay: 0.5s;
+  }
+  .hero-art .band:nth-child(5) img {
+    animation-delay: 0.64s;
+  }
+  .hero-art .band:nth-child(6) img {
+    animation-delay: 0.78s;
+  }
+  .hero-art .performer {
+    animation: performer-in 0.7s var(--ease) 1s both;
+  }
+  @keyframes band-in {
+    from {
+      transform: translateX(-102%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes performer-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {

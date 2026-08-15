@@ -24,7 +24,7 @@
     <meta property="og:image" content="https://fantosaur.com/assets/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dino, an aqua sauropod, standing at a microphone in front of a neon dinosaur crowd." />
+    <meta property="og:image:alt" content="Dino, an aqua sauropod, at a microphone in front of six bands of Fantosaur dinosaur art." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#25064D" />
     <script type="application/ld+json">
@@ -34,7 +34,6 @@
         "name": "Fantosaur",
         "url": "https://fantosaur.com/",
         "logo": "https://fantosaur.com/assets/icon-512.png",
-        "email": "dino.the.fantosaur@gmail.com",
         "description": "Dino tells dad jokes to a room full of neon dinosaurs. New sets on YouTube, and Riff Ruck backpacks printed with the art.",
         "sameAs": [
           "https://www.youtube.com/@dino.the.fantosaur",
@@ -76,14 +75,20 @@
               <a class="btn btn-ghost" href="https://shop.fantosaur.com">Shop Riff Rucks</a>
             </div>
           </div>
-          <div class="hero-frame">
-            <img
-              src="assets/hero-stage.webp"
-              width="900"
-              height="1125"
-              alt="Dino, an aqua sauropod, at a microphone below a glowing frieze of neon dinosaurs."
-              fetchpriority="high"
-            />
+          <!-- One band per art theme, in the order they slide in. The performer sits
+               over the last two, which is why the light cubist band is kept near the top. -->
+          <div
+            class="hero-art"
+            role="img"
+            aria-label="Dino, an aqua sauropod, at a microphone in front of six bands of Fantosaur dinosaur art: abstract, cubist, impressionist, tribal, pointillist and neon."
+          >
+            <div class="band"><img src="assets/band-abstract.webp" width="1100" height="220" alt="" fetchpriority="high" /></div>
+            <div class="band"><img src="assets/band-cubist.webp" width="1100" height="220" alt="" /></div>
+            <div class="band"><img src="assets/band-impressionist.webp" width="1100" height="220" alt="" /></div>
+            <div class="band"><img src="assets/band-tribal.webp" width="1100" height="220" alt="" /></div>
+            <div class="band"><img src="assets/band-pointillist.webp" width="1100" height="220" alt="" /></div>
+            <div class="band"><img src="assets/band-neon.webp" width="1100" height="220" alt="" /></div>
+            <img class="performer" src="assets/dino-mic.webp" width="900" height="451" alt="" />
           </div>
         </div>
       </section>
@@ -134,7 +139,7 @@
               Backpacks printed with the dinosaurs Dino digs out of the fossil record and brings back remixed.
               Cubist raptors, pointillist stegs, whole petroglyph herds.
             </p>
-            <p>Printed to order, one at a time, and built to haul everything a modern explorer needs.</p>
+            <p>Built to haul everything a modern explorer needs.</p>
             <div class="actions">
               <a class="btn btn-primary" href="https://shop.fantosaur.com">Shop Riff Rucks</a>
             </div>
@@ -194,10 +199,9 @@
     <footer class="site-foot">
       <div class="shell">
         <p>&copy; 2026 Fantosaur</p>
-        <nav aria-label="Legal and contact">
+        <nav aria-label="Legal">
           <a href="/privacy-policy/">Privacy Policy</a>
           <a href="/terms-of-service/">Terms of Service</a>
-          <a href="mailto:dino.the.fantosaur@gmail.com">dino.the.fantosaur@gmail.com</a>
         </nav>
       </div>
     </footer>
